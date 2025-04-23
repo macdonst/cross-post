@@ -1,0 +1,16 @@
+{
+  "blueprintVersion": "2024-10-01",
+  "resources": [
+    {
+      "displayName": "bluesky",
+      "name": "bluesky",
+      "type": "sanity.function.document-publish",
+      "src": "functions/bluesky",
+      "event": {
+        "on": "update",
+        "filter": "popularity > 100",
+        "projection": "title, releaseDate, review"
+      }
+    }
+  ]
+}

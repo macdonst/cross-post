@@ -1,0 +1,8 @@
+{
+  "name": "bluesky",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@humanwhocodes/crosspost": "^0.11.1"
+  }
+}

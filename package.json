@@ -1,0 +1,17 @@
+{
+  "name": "cross-post",
+  "version": "0.0.1",
+  "description": "A Sanity Functions Blueprint to enable cross posting to multiple services",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simon MacDonald",
+  "license": "MIT",
+  "devDependencies": {
+    "@sanity/runtime-cli": "^4.3.0"
+  },
+  "dependencies": {
+    "@humanwhocodes/crosspost": "^0.11.1"
+  }
+}
