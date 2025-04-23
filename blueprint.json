@@ -11,6 +11,17 @@
         "filter": "popularity > 100",
         "projection": "title, releaseDate, review"
       }
+    },
+    {
+      "displayName": "mastodon",
+      "name": "mastodon",
+      "type": "sanity.function.document-publish",
+      "src": "functions/mastodon",
+      "event": {
+        "on": "update",
+        "filter": "popularity > 100",
+        "projection": "title, releaseDate, review"
+      }
     }
   ]
 }
