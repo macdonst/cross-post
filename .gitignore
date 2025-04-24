@@ -137,3 +137,4 @@ dist
 
 # Blueprints
 .blueprint
+package-lock.json
