@@ -12,6 +12,7 @@
     "@sanity/runtime-cli": "^4.3.5-bundle.0"
   },
   "dependencies": {
-    "@humanwhocodes/crosspost": "^0.11.1"
+    "@humanwhocodes/crosspost": "^0.11.1",
+    "sanity": "^3.87.0"
   }
 }

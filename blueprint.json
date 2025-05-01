@@ -10,8 +10,7 @@
         "on": "update",
         "filter": "popularity > 100",
         "projection": "title, releaseDate, review"
-      },
-      "bundle": true
+      }
     },
     {
       "displayName": "mastodon",

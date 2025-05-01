@@ -3,18 +3,20 @@ import {
 	BlueskyStrategy,
 	Client,
 } from '@humanwhocodes/crosspost'
+import type {PortableTextBlock, PortableTextChild} from 'sanity'
 
-function toPlainText(blocks = []) {
+function toPlainText(blocks: PortableTextBlock[] = []): string {
   return blocks
     .map(block => {
-      if (block._type !== 'block' || !block.children) {
-        return ''
+      if (block._type !== 'block' || !Array.isArray(block.children)) {
+        return '';
       }
-      return block.children.map(child => child.text).join('')
+      return block.children.map((child: PortableTextChild) => child.text).join('');
     })
-    .join('\n\n')
+    .join('\n\n');
 }
 
+// Typedefs for this function coming soon
 export async function handler({context, event}) {
   const time = new Date().toLocaleTimeString()
   console.log(`👋 Your Sanity Function was called at ${time}`)
@@ -25,9 +27,9 @@ export async function handler({context, event}) {
 
   try {
     const bluesky = new BlueskyStrategy({
-      identifier: env.BLUESKY_USERNAME,
-      password: env.BLUESKY_PASSWORD,
-      host: env.BLUESKY_HOST,
+      identifier: env.BLUESKY_USERNAME || '',
+      password: env.BLUESKY_PASSWORD || '',
+      host: env.BLUESKY_HOST || '',
     })
     const client = new Client({
       strategies: [bluesky],
