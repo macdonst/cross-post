@@ -137,3 +137,6 @@ dist
 
 # Blueprints
 .blueprint
+functions/**/.build/**
+package-lock.json
+pnpm-lock.yaml

@@ -1,8 +1,8 @@
+import {env} from 'node:process'
 import {
 	Client,
 	MastodonStrategy,
 } from '@humanwhocodes/crosspost'
-import {env} from 'node:process'
 
 function toPlainText(blocks = []) {
   return blocks

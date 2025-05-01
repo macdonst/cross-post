@@ -1,8 +1,8 @@
-import {
-	Client,
-	BlueskyStrategy,
-} from '@humanwhocodes/crosspost'
 import {env} from 'node:process'
+import {
+	BlueskyStrategy,
+	Client,
+} from '@humanwhocodes/crosspost'
 
 function toPlainText(blocks = []) {
   return blocks
