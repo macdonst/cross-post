@@ -5,6 +5,8 @@ import {
 } from '@humanwhocodes/crosspost'
 import type {PortableTextBlock, PortableTextChild} from 'sanity'
 
+import { documentEventHandler } from '@sanity/functions'
+
 function toPlainText(blocks: PortableTextBlock[] = []): string {
   return blocks
     .map(block => {
@@ -16,13 +18,18 @@ function toPlainText(blocks: PortableTextBlock[] = []): string {
     .join('\n\n');
 }
 
-// Typedefs for this function coming soon
-export async function handler({context, event}) {
+interface NotificationData {
+  releaseDate: string
+  review: PortableTextBlock[]
+  title: string
+}
+
+export const handler = documentEventHandler<NotificationData>(async ({event}) => {
   const time = new Date().toLocaleTimeString()
   console.log(`👋 Your Sanity Function was called at ${time}`)
 
-  const { doc } = event
-  const { releaseDate, review, title } = doc
+  const { data } = event
+  const { releaseDate, review, title } = data
   const [date] = releaseDate.split("T")
 
   try {
@@ -42,4 +49,4 @@ ${toPlainText(review)}`)
   } catch (error) {
     console.log(error)
   }
-}
+})

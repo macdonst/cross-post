@@ -3,6 +3,7 @@ import {
 	Client,
 	MastodonStrategy,
 } from '@humanwhocodes/crosspost'
+import { documentEventHandler } from '@sanity/functions'
 
 function toPlainText(blocks = []) {
   return blocks
@@ -15,7 +16,7 @@ function toPlainText(blocks = []) {
     .join('\n\n')
 }
 
-export async function handler({context, event}) {
+export const handler = documentEventHandler(async ({context, event}) => {
   const time = new Date().toLocaleTimeString()
   console.log(`👋 Your Sanity Function was called at ${time}`)
 
@@ -39,4 +40,4 @@ ${toPlainText(review)}`)
   } catch (error) {
     console.log(error)
   }
-}
+})

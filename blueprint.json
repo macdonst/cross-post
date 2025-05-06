@@ -7,7 +7,9 @@
       "type": "sanity.function.document-publish",
       "src": "functions/bluesky",
       "event": {
-        "on": "update",
+        "on": [
+          "publish"
+        ],
         "filter": "popularity > 100",
         "projection": "title, releaseDate, review"
       }
@@ -18,11 +20,26 @@
       "type": "sanity.function.document-publish",
       "src": "functions/mastodon",
       "event": {
-        "on": "update",
+        "on": [
+          "publish"
+        ],
         "filter": "popularity > 100",
         "projection": "title, releaseDate, review"
       },
       "bundle": true
+    },
+    {
+      "displayName": "log-test",
+      "name": "log-test",
+      "type": "sanity.function.document-publish",
+      "src": "functions/log-test",
+      "event": {
+        "on": [
+          "publish"
+        ],
+        "filter": "popularity > 95",
+        "projection": "title, releaseDate, review"
+      }
     }
   ]
 }
