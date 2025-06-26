@@ -1,0 +1,231 @@
+{
+  "_createdAt": "2018-06-13T08:57:45Z",
+  "_id": "movie_286217",
+  "_rev": "pXFCpa7zUo5CHibFUBj540",
+  "_system": {
+    "base": {
+      "id": "movie_286217",
+      "rev": "p7NzLxpUh50IXnTvMbOpRY"
+    }
+  },
+  "_type": "movie",
+  "_updatedAt": "2025-06-19T18:20:26Z",
+  "castMembers": [
+    {
+      "_key": "c53528e93d973e93d82e0b4110f4c42a",
+      "_type": "castMember",
+      "characterName": "Mark Watney",
+      "externalCreditId": "53e7e85e0e0a266f9a0029aa",
+      "externalId": 1892,
+      "person": {
+        "_ref": "person_matt-damon",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "801e49ef62ae1e18609ee5de197095cb",
+      "_type": "castMember",
+      "characterName": "Melissa Lewis",
+      "externalCreditId": "5466c78eeaeb8172820008e4",
+      "externalId": 83002,
+      "person": {
+        "_ref": "person_jessica-chastain",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "a8c67e05ba0d2cb155d9f6416edaba36",
+      "_type": "castMember",
+      "characterName": "Annie Montrose",
+      "externalCreditId": "5497ab23c3a368054b0009b4",
+      "externalId": 41091,
+      "person": {
+        "_ref": "person_kristen-wiig",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "3b24ceaa41bf7135c1a244d14f86d16a",
+      "_type": "castMember",
+      "characterName": "Teddy Sanders",
+      "externalCreditId": "54a7fe92c3a3680c33001972",
+      "externalId": 8447,
+      "person": {
+        "_ref": "person_jeff-daniels",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "d6e72eda32ac8cee3f8f80d0332ff814",
+      "_type": "castMember",
+      "characterName": "Rick Martinez",
+      "externalCreditId": "54bad6cc9251411d77006bc3",
+      "externalId": 454,
+      "person": {
+        "_ref": "person_michael-pea",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "37021aba9085b5b7ab84fda03f21dd27",
+      "_type": "castMember",
+      "characterName": "Mitch Henderson",
+      "externalCreditId": "54a7feb3c3a3680c33001977",
+      "externalId": 48,
+      "person": {
+        "_ref": "person_sean-bean",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "4deaf3a4913371e3743bd2baa7fa7eb5",
+      "_type": "castMember",
+      "characterName": "Beth Johanssen",
+      "externalCreditId": "54a7fe889251414d6a001b59",
+      "externalId": 51072,
+      "person": {
+        "_ref": "person_kate-mara",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "6cb101803bafde6a366d845c6117c21e",
+      "_type": "castMember",
+      "characterName": "Chris Beck",
+      "externalCreditId": "54bad6e49251411d79006a03",
+      "externalId": 60898,
+      "person": {
+        "_ref": "person_sebastian-stan",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "cf2376bd730208766d758315138c3ca2",
+      "_type": "castMember",
+      "characterName": "Alex Vogel",
+      "externalCreditId": "547c8ad89251412d70003329",
+      "externalId": 76547,
+      "person": {
+        "_ref": "person_aksel-hennie",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "dd831b9ce63228e60a41ae611a6efc49",
+      "_type": "castMember",
+      "characterName": "Venkat Kapoor",
+      "externalCreditId": "54bad6fec3a3686c61006835",
+      "externalId": 5294,
+      "person": {
+        "_ref": "person_chiwetel-ejiofor",
+        "_type": "reference"
+      }
+    }
+  ],
+  "crewMembers": [
+    {
+      "_key": "195de993229f415b4b039edcd2a31f8b",
+      "_type": "crewMember",
+      "department": "Camera",
+      "externalCreditId": "5607a946c3a3681218003eef",
+      "externalId": 1404244,
+      "job": "Helicopter Camera",
+      "person": {
+        "_ref": "person_john-marzano",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "047376ec65cdedb6432b766ca5aa8c0c",
+      "_type": "crewMember",
+      "department": "Production",
+      "externalCreditId": "53e851a8c3a368398a0031eb",
+      "externalId": 11092,
+      "job": "Producer",
+      "person": {
+        "_ref": "person_simon-kinberg",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "c1e5a79c8ca9ca6eb99cbba58074b879",
+      "_type": "crewMember",
+      "department": "Directing",
+      "externalCreditId": "53e88b1ac3a368399f0035c5",
+      "externalId": 578,
+      "job": "Director",
+      "person": {
+        "_ref": "person_ridley-scott",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "49e16a06f273bbed3348992a3a89b8ab",
+      "_type": "crewMember",
+      "department": "Writing",
+      "externalCreditId": "53e89181c3a368398a003628",
+      "externalId": 47506,
+      "job": "Screenplay",
+      "person": {
+        "_ref": "person_drew-goddard",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "9b884bb1c23358eee232fb8228291d8c",
+      "_type": "crewMember",
+      "department": "Writing",
+      "externalCreditId": "53e8945f0e0a266f9d003ed9",
+      "externalId": 1352085,
+      "job": "Novel",
+      "person": {
+        "_ref": "person_andy-weir",
+        "_type": "reference"
+      }
+    }
+  ],
+  "externalId": 286217,
+  "overview": [
+    {
+      "_key": "fca446a92bfc8294bef04927fd23a125",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "zh6XPo9X",
+          "_type": "span",
+          "marks": [],
+          "text": "During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive!"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "popularity": 96,
+  "poster": {
+    "_type": "image",
+    "asset": {
+      "_ref": "image-222ce0eaef8662485762791f5c31b60ae627e83d-780x1170-jpg",
+      "_type": "reference"
+    },
+    "crop": {
+      "bottom": 0.1597570093457945,
+      "left": 0,
+      "right": 0,
+      "top": 0
+    },
+    "hotspot": {
+      "height": 0.06428037383177557,
+      "width": 0.12149532710280364,
+      "x": 0.5031152647975078,
+      "y": 0.40352336448598114
+    }
+  },
+  "releaseDate": "2015-09-30T00:00:00Z",
+  "slug": {
+    "_type": "slug",
+    "current": "the-martian",
+    "source": "title"
+  },
+  "title": "The Martian"
+}

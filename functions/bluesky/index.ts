@@ -30,13 +30,16 @@ export const handler = documentEventHandler<NotificationData>(
 
 		const { data } = event;
 		const { releaseDate, review, title } = data;
+
+		console.log(title, "released", releaseDate);
+
 		const [date] = releaseDate.split("T");
 
 		try {
 			const bluesky = new BlueskyStrategy({
 				identifier: env.BLUESKY_USERNAME || "",
 				password: env.BLUESKY_PASSWORD || "",
-				host: env.BLUESKY_HOST || "",
+				host: env.BLUESKY_HOST || "bsky.social",
 			});
 			const client = new Client({
 				strategies: [bluesky],

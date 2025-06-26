@@ -1,5 +1,4 @@
 import {env} from 'node:process'
-import {setTimeout} from 'node:timers/promises'
 import {
 	Client,
 	MastodonStrategy,
@@ -23,6 +22,9 @@ export const handler = documentEventHandler(async ({context, event}) => {
 
   const { data = {} } = event
   const { releaseDate, review, title } = data
+
+	console.log(title, "released", releaseDate);
+
   const [date] = releaseDate.split("T")
 
   try {
