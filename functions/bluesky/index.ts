@@ -1,52 +1,56 @@
-import {env} from 'node:process'
-import {
-	BlueskyStrategy,
-	Client,
-} from '@humanwhocodes/crosspost'
-import type {PortableTextBlock, PortableTextChild} from 'sanity'
+import { env } from "node:process";
+import { BlueskyStrategy, Client } from "@humanwhocodes/crosspost";
+import type { PortableTextBlock, PortableTextChild } from "sanity";
 
-import { documentEventHandler } from '@sanity/functions'
+import { documentEventHandler } from "@sanity/functions";
 
 function toPlainText(blocks: PortableTextBlock[] = []): string {
-  return blocks
-    .map(block => {
-      if (block._type !== 'block' || !Array.isArray(block.children)) {
-        return '';
-      }
-      return block.children.map((child: PortableTextChild) => child.text).join('');
-    })
-    .join('\n\n');
+	return blocks
+		.map((block) => {
+			if (block._type !== "block" || !Array.isArray(block.children)) {
+				return "";
+			}
+			return block.children
+				.map((child: PortableTextChild) => child.text)
+				.join("");
+		})
+		.join("\n\n");
 }
 
 interface NotificationData {
-  releaseDate: string
-  review: PortableTextBlock[]
-  title: string
+	releaseDate: string;
+	review: PortableTextBlock[];
+	title: string;
 }
 
-export const handler = documentEventHandler<NotificationData>(async ({event}) => {
-  const time = new Date().toLocaleTimeString()
-  console.log(`👋 Your Sanity Function was called at ${time}`)
+export const handler = documentEventHandler<NotificationData>(
+	async ({ context, event }) => {
+		const time = new Date().toLocaleTimeString();
+		console.log(`👋 Your Sanity Function was called at ${time}`);
 
-  const { data } = event
-  const { releaseDate, review, title } = data
-  const [date] = releaseDate.split("T")
+		const { data } = event;
+		const { releaseDate, review, title } = data;
+		const [date] = releaseDate.split("T");
 
-  try {
-    const bluesky = new BlueskyStrategy({
-      identifier: env.BLUESKY_USERNAME || '',
-      password: env.BLUESKY_PASSWORD || '',
-      host: env.BLUESKY_HOST || '',
-    })
-    const client = new Client({
-      strategies: [bluesky],
-    })
-    await client.post(`${title}
+		try {
+			const bluesky = new BlueskyStrategy({
+				identifier: env.BLUESKY_USERNAME || "",
+				password: env.BLUESKY_PASSWORD || "",
+				host: env.BLUESKY_HOST || "",
+			});
+			const client = new Client({
+				strategies: [bluesky],
+			});
+
+			if (!context.local) {
+				await client.post(`${title}
 Released: ${date}
 
-${toPlainText(review)}`)
-    console.log('sent review to bluesky')
-  } catch (error) {
-    console.log(error)
-  }
-})
+${toPlainText(review)}`);
+				console.log("sent review to bluesky");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	},
+);

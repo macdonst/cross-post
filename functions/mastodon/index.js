@@ -1,4 +1,5 @@
 import {env} from 'node:process'
+import {setTimeout} from 'node:timers/promises'
 import {
 	Client,
 	MastodonStrategy,
@@ -20,8 +21,8 @@ export const handler = documentEventHandler(async ({context, event}) => {
   const time = new Date().toLocaleTimeString()
   console.log(`👋 Your Sanity Function was called at ${time}`)
 
-  const { doc } = event
-  const { releaseDate, review, title } = doc
+  const { data = {} } = event
+  const { releaseDate, review, title } = data
   const [date] = releaseDate.split("T")
 
   try {
@@ -32,11 +33,14 @@ export const handler = documentEventHandler(async ({context, event}) => {
     const client = new Client({
       strategies: [mastodon],
     })
+
+    if (!context.local) {
     await client.post(`${title}
 Released: ${date}
 
 ${toPlainText(review)}`)
     console.log('sent review to mastodon')
+    }
   } catch (error) {
     console.log(error)
   }
