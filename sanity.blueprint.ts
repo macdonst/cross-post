@@ -11,5 +11,7 @@ export default defineBlueprint({
 				projection: "",
 			},
 		}),
+		defineDocumentFunction({ name: "ts-hard-mode" }),
+		defineDocumentFunction({ name: "js-hard-mode" }),
 	],
 });
