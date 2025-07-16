@@ -1,6 +1,0 @@
-{
-  "type": "module",
-  "dependencies": {
-    "@sanity/functions": "1.0.2"
-  }
-}

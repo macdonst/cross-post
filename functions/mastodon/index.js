@@ -5,27 +5,9 @@ import {
 } from '@humanwhocodes/crosspost'
 import { documentEventHandler } from '@sanity/functions'
 
-function toPlainText(blocks = []) {
-  return blocks
-    .map(block => {
-      if (block._type !== 'block' || !block.children) {
-        return ''
-      }
-      return block.children.map(child => child.text).join('')
-    })
-    .join('\n\n')
-}
-
 export const handler = documentEventHandler(async ({context, event}) => {
-  const time = new Date().toLocaleTimeString()
-  console.log(`👋 Your Sanity Function was called at ${time}`)
-
   const { data = {} } = event
-  const { releaseDate, review, title } = data
-
-	console.log(title, "released", releaseDate);
-
-  const [date] = releaseDate.split("T")
+  const { title, autoSummary, slug } = data
 
   try {
     const mastodon = new MastodonStrategy({
@@ -36,12 +18,18 @@ export const handler = documentEventHandler(async ({context, event}) => {
       strategies: [mastodon],
     })
 
-    if (!context.local) {
-    await client.post(`${title}
-Released: ${date}
+		const postContent = `${title}
 
-${toPlainText(review)}`)
-    console.log('sent review to mastodon')
+${autoSummary}
+
+${slug.current}`
+
+    // If testing locally don't actually post
+    if (!context.local) {
+      await client.post(postContent)
+      console.log('sent post to mastodon')
+    } else {
+      console.log(postContent)
     }
   } catch (error) {
     console.log(error)

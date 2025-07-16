@@ -141,8 +141,11 @@ functions/**/.build/**
 package-lock.json
 pnpm-lock.yaml
 
+.DS_Store
 
 # Sanity Functions
+.sanity/
+.sanity-staging/
 functions/**/.env*
 functions/**/.build/
 functions/**/node_modules/
