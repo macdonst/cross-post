@@ -12,37 +12,26 @@ This is an example project that shows multiple functions in the same repo that:
 
 ## Getting started
 
+This example assumes you have already done the necessary steps in the [auto-summary](https://github.com/sanity-io/sanity/blob/main/examples/functions/auto-summary/README.md) example.
+
 ```bash
 pnpm install
 ```
 
 Note: you no longer need to go into each function directory in order to add a dependency.
 
-## Bundling
+## Testing Locally
 
-TypeScript functions will be bundled by default. Bundling for JavaScript functions is opt-in. In order to opt-in add `bundle: true` to your function definition in `blueprint.json`.
+You can test each function locally by running the following commands. This will execute the code of the function but there is a guard around the actually posting so it won't _actually_ post to Bluesky or Mastodon.
 
-Example:
-
-```diff
-{
-    "displayName": "mastodon",
-    "name": "mastodon",
-    "type": "sanity.function.document-publish",
-    "src": "functions/mastodon",
-    "event": {
-        "on": "update",
-        "filter": "popularity > 100",
-        "projection": "title, releaseDate, review"
-    },
-+   "bundle": true
-}
+```bash
+npx sanity functions test bluesky --document-id <doc id>
+npx sanity functions test mastodon --document-id <doc id>
 ```
 
-Bundling is triggered under these three circumstances:
+If the `dataset` can't be discovered by the CLI then add the `--dataset` flag.
 
-- `npx sanity-run functions test bluesky`
-- `npx sanity-run functions dev`
-- `npx sanity-run blueprints deploy`
-
-That is bundling happens before you invoke your function locally or deploy to Sanity infrastructure.
+```bash
+npx sanity functions test bluesky --document-id <doc id> --dataset production
+npx sanity functions test mastodon --document-id <doc id> --dataset production
+```
