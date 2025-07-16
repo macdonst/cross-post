@@ -1,0 +1,33 @@
+name: Deploy Sanity Blueprints
+
+on:
+    push:
+        branches:
+            - main
+env:
+    SANITY_INTERNAL_ENV: "staging"
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v5
+
+            - uses: pnpm/action-setup@v4
+
+            - uses: actions/setup-node@v6
+              with:
+                  cache: pnpm
+                  node-version: ${{ inputs.node-version }}
+
+            - name: Install project dependencies
+              run: pnpm install --ignore-scripts
+              shell: bash
+
+            - name: Deploy blueprints
+              uses: sanity-io/blueprints-actions/deploy@deploy-v3
+              with:
+                  sanity-token: ${{ secrets.SANITY_TOKEN }}
+                  stack-id: "ST-x5icdptp"
+                  project-id: "x5icdptp"

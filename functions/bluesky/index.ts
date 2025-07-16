@@ -11,6 +11,9 @@ interface NotificationData {
 
 export const handler = documentEventHandler<NotificationData>(
 	async ({ context, event }) => {
+		console.log(context, event)
+		console.log('bluesky')
+		/*
 		const { data } = event
 		const { title, autoSummary, slug } = data
 
@@ -39,6 +42,11 @@ ${slug.current}`
 			}
 		} catch (error) {
 			console.log(error)
+		}
+			*/
+
+		return {
+			"stuff": true
 		}
 	},
 )
