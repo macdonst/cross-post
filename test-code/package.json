@@ -1,0 +1,14 @@
+{
+  "name": "test-code",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "license": "UNLICENSED",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
