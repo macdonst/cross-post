@@ -4,10 +4,13 @@ import {
 	MastodonStrategy,
 } from '@humanwhocodes/crosspost'
 import { documentEventHandler } from '@sanity/functions'
+import { ack } from 'test-code'
 
 export const handler = documentEventHandler(async ({context, event}) => {
   const { data = {} } = event
   const { title, autoSummary, slug } = data
+
+  ack()
 
   try {
     const mastodon = new MastodonStrategy({
