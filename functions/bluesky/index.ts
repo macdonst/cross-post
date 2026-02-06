@@ -2,7 +2,7 @@ import { env } from "node:process"
 import { BlueskyStrategy, Client } from "@humanwhocodes/crosspost"
 
 import { documentEventHandler } from "@sanity/functions"
-import { ack } from 'test-code'
+// import { ack } from 'test-code'
 
 interface NotificationData {
 	slug: Record<string, undefined>
@@ -14,7 +14,7 @@ export const handler = documentEventHandler<NotificationData>(
 	async ({ context, event }) => {
 		console.log(context, event)
 		console.log('bluesky')
-		ack()
+		// ack()
 		/*
 		const { data } = event
 		const { title, autoSummary, slug } = data

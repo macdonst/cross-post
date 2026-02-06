@@ -11,6 +11,7 @@ export default defineBlueprint({
 				projection: "{title, autoSummary, slug}",
 			},
 		}),
+		/*
 		defineDocumentFunction({
 			name: "mastodon",
 			event: {
@@ -20,7 +21,6 @@ export default defineBlueprint({
 				projection: "{title, autoSummary, slug}",
 			},
 		}),
-		/*
 		defineDocumentFunction({
 			name: "title-case",
 			event: {
